@@ -8,6 +8,8 @@ export const YOUTUBE_VIDEOS_API =
 
 // https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=AIzaSyBAubYkDr5e2UiKeBY1IZwlhMifex3urdc
 
+// AIzaSyA8yub88TQZa1F29ekX-kHsSyHplnZcLgk
+
 export const data = {
     "kind": "youtube#videoListResponse",
     "etag": "vR1zXB6FPjEgeba9SzysM27c88Q",
@@ -4041,4 +4043,6 @@ export const data = {
   }
 
 
-  export const commentData= 'https://youtube.googleapis.com/youtube/v3/comments?key=AIzaSyBAubYkDr5e2UiKeBY1IZwlhMifex3urdc' 
+  export const commentData= 'https://youtube.googleapis.com/youtube/v3/comment?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=AIzaSyBAubYkDr5e2UiKeBY1IZwlhMifex3urdc' 
+
+  export const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=" ;
