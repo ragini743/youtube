@@ -106,12 +106,13 @@ const Head = () => {
                 key={s}
                 className="shadow-sm p-2 hover:bg-gray-100 rounded-lg"
               >
-                {s}
-                {/* <img
+               
+                <img
                   src="https://www.freepnglogos.com/uploads/search-png/search-very-basic-icon-ios-iconset-icons-7.png"
                   alt="icon"
                   className="w-6 mr-4  inline-block"
-                ></img> */}
+                ></img>
+                 {s}
               </li>
             ))}
             

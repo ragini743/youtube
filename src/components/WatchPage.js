@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
 import { useParams, useSearchParams } from "react-router-dom";
-import CommentContainer from "./CommentContainer";
-import { commentData } from "../utils/constants";
+import LIveChat from "./LIveChat";
+
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   console.log(searchParams.get("v"));
@@ -13,20 +13,10 @@ const WatchPage = () => {
     dispatch(closeMenu());
   }, []);
 
-const comment =async()=>{
-    const data = await fetch(commentData)
-    const json = await data.json()
-    console.log("json",json)
-}
-console.log("comment",comment)
-
-
-
-
 
   return (
     <>
-      <div className="py-16 px-24 w-[1000px] h-[550px]">
+      <div className="py-12 mx-16 col-span-8 h-[550px]">
         <iframe
           className="w-full rounded-2xl h-full"
           title="youtube player"
@@ -35,9 +25,10 @@ console.log("comment",comment)
           allowFullScreen
         ></iframe>
       </div>
-      <div>
-        <CommentContainer />
+      <div className="my-12 border-2 col-span-4 mx-4 border-black p-4 ">
+        <LIveChat />
       </div>
+      
     </>
   );
 };
