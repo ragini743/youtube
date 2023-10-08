@@ -3,9 +3,9 @@ import ButtonList from "./ButtonList";
 import VideoContainer from "./VideoContainer";
 const MainContainer = () =>{
     return(
-        <div className="col-span-10 p-4">
+        <div className="">
        <ButtonList />
-       <VideoContainer />
+       {/* <VideoContainer /> */}
         </div>
     )
 }

@@ -16,7 +16,7 @@ const WatchPage = () => {
 
   return (
     <>
-      <div className="py-12 mx-16 col-span-8 h-[550px]">
+      <div className="my-12 mx-12 col-span-8 h-[550px]">
         <iframe
           className="w-full rounded-2xl h-full"
           title="youtube player"
@@ -25,7 +25,7 @@ const WatchPage = () => {
           allowFullScreen
         ></iframe>
       </div>
-      <div className="my-12 border-2 col-span-4 mx-4 border-black p-4 ">
+      <div className="my-12 border-2 col-span-4 mx-4 border-black p-4 rounded-lg h-[550px]m">
         <LIveChat />
       </div>
       
