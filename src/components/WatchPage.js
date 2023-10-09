@@ -15,8 +15,8 @@ const WatchPage = () => {
 
 
   return (
-    <>
-      <div className="my-12 mx-12 col-span-8 h-[550px]">
+    <div className="flex flex-col w-full md:flex-row md:justify-evenly">
+      <div className="w-full h-[300px] md:w-[60%] md:h-full">
         <iframe
           className="w-full rounded-2xl h-full"
           title="youtube player"
@@ -25,11 +25,11 @@ const WatchPage = () => {
           allowFullScreen
         ></iframe>
       </div>
-      <div className="my-12 border-2 col-span-4 mx-4 border-black p-4 rounded-lg h-[550px]m">
+      <div className="border-2 border-black mt-8 md:mt-0">
         <LIveChat />
       </div>
       
-    </>
+    </div>
   );
 };
 export default WatchPage;

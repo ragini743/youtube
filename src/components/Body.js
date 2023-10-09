@@ -5,7 +5,7 @@ import WatchPage from "./WatchPage";
 import { Outlet } from "react-router-dom";
 const Body = () =>{
     return(
-        <div className="flex mt-4 md:grid md:grid-flow-col">
+        <div className="flex w-full mt-4 md:grid md:grid-flow-col">
         <Sidebar />
         
         <Outlet />

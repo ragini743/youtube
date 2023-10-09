@@ -31,11 +31,11 @@ const VideoContainer = () =>{
     console.log("hey",videos)
 
     return(
-        <div className="grid grid-cols-3 gap-12 justify-center py-4 px-8">
+        <div className="flex flex-wrap flex-col md:grid md:grid-cols-3 md:gap-8 2lg:gap-12">
           {videos[0] && <AdVideoCard info={videos[0]} />}
           {
           videos.map(video => (
-          <Link  key={video.id} to ={"/watch?v="+video.id}>
+          <Link  key={video.id} to ={"/watch?v="+video.id} className="my-6 md:my-2">
           <VideoCard info={video} /></Link>))}
          
         </div>

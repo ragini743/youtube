@@ -9,10 +9,10 @@ const VideoCard = ({ info }) => {
     return(
         <div className="shadow-md h-full">
             <div>
-            <img className="rounded-2xl" src = {thumbnails.high.url} alt="thumbnails"></img>
+            <img className="rounded-2xl w-full" src = {thumbnails.high.url} alt="thumbnails"></img>
             </div>
             <ul>
-                <li>title : {title}</li>
+                <li className="overflow-x-hidden">title : {title}</li>
                 <li>{channelTitle}</li>
                 
                 <li className=""> {statistics.viewCount} views</li>
@@ -27,7 +27,7 @@ export default VideoCard;
 export const AdVideoCard = ({info}) =>{
     console.log("info",info)
     return(
-        <div className="border-2 border-red-700">
+        <div className="border-2 border-red-700 my-6 md:my-2">
             {/* <h1>{info.snippet.title}</h1> */}
         <VideoCard info={info}/>
         </div>

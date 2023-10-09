@@ -8,7 +8,7 @@ const Sidebar = () =>{
     if(!isMenuOpen) return null ;
 
     return( 
-        <div className="w-[40%] text-lg m-1 p-2.5 border-r-2 md:col-span-2">
+        <div className="m-1 p-2.5 border-r-2 md:col-span-2">
             <h1 className="text-justify bold px-4 font-bold"><Link to="/">Home</Link></h1>
             <ul>
                 <li className="px-4">music</li>
