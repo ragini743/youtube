@@ -61,7 +61,7 @@ const Head = () => {
   return (
     <div className="w-full flex flex-wrap
         py-4 shadow-lg md:grid-flow-col md:grid">
-      <div className="w-12 mr-2 self-center md:col-span-1">
+      <div className="w-12 mr-2 self-center md:col-span-1 md:w-16">
         <img
           onClick={() => {
             toggleMenuHandler();
@@ -71,7 +71,7 @@ const Head = () => {
           className="w-full cursor-pointer"
         ></img>
       </div>
-      <div className="w-24 mr-2 self-center md:col-span-1">
+      <div className="w-24 mr-2 self-center md:col-span-1 md:w-28">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQNvE0BVKYsH-EceH_u2MBDgbiowadaNTTEA&usqp=CAU"
           alt="youtube-logo"
@@ -79,11 +79,12 @@ const Head = () => {
         ></img>
       </div>
      
+ 
+      <div className="order-4 border-2 rounded-xl mx-auto border-gray-400 flex my-6 sm:order-3 md:order-3 md:w-2/3 md:col-span-9 relative">
 
-      <div className="order-4 border-2 rounded-xl border-gray-400 flex my-6 md:col-span-9">
         <input
           type="text"
-          className="w-full rounded-xl pt-2 pb-2 rounded-r-none pl-2  border-0 mr-4 "
+          className="w-full rounded-xl pt-2 pb-2 rounded-r-none pl-2  border-0 mr-4 md:pt-4 md:pb-4 md:pl-4"
           placeholder="search"
           value={searchQuery}
           onChange={(e) => {
@@ -92,12 +93,13 @@ const Head = () => {
           onFocus={() =>setShowSuggestion(true)}
           onBlur={() =>setShowSuggestion(false)}
         ></input>
-        <button type="search" className="w-9 px-2">
+        <button type="search" className="w-9 px-2 ">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVXvNI4E3PQ18LUBBYIpjyQUQUwhBTw3VQiBMYec8Omw&s"
             alt="search-icon"
           ></img>
         </button>
+        
         {suggestion.length>0 && (
         <div
           className="absolute left-0 right-0 top-12 bg-white border-2 
@@ -126,7 +128,7 @@ const Head = () => {
 
       </div>
 
-      <div className="order-3 ml-auto w-9 md:col-span-1">
+      <div className="order-3 ml-auto w-9 sm:order-4 md:col-span-1 md:relative right-5">
         <img
           src="https://cdn-icons-png.flaticon.com/512/666/666201.png"
           alt="user-logo"
