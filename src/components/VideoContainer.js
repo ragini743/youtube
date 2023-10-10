@@ -5,40 +5,43 @@ import { data } from "../utils/constants";
 import { Link } from "react-router-dom";
 import { AdVideoCard } from "./VideoCard";
 
+const VideoContainer = () => {
+  const [videos, setVideos] = useState([]);
 
-const VideoContainer = () =>{
-    const [videos, setVideos] = useState([])
+  useEffect(() => {
+    getVideos();
+    // setVideos(fakeData.items);
+  }, []);
 
-    useEffect(() => {
-        getVideos();
-        // setVideos(fakeData.items);
-    }, []) ;
+  const getVideos = async () => {
+    // const data = await fetch(YOUTUBE_VIDEOS_API)
+    // const json = await data.json();
+    // console.log("json",json);
+    // setVideos(json.items);
+    setVideos(data.items);
+    // console.log("hello")
+    // console.log("setVideos",setVideos)
+  };
 
-    const getVideos = async () =>{
-        // const data = await fetch(YOUTUBE_VIDEOS_API)
-        // const json = await data.json();
-        // console.log("json",json);
-        // setVideos(json.items);
-        setVideos(data.items);
-        // console.log("hello")
-        // console.log("setVideos",setVideos)
-    } ;
+  if (videos.length === 0) {
+    return <div>Loading....</div>;
+  }
 
-    if (videos.length === 0) {
-      return <div>Loading....</div>
-    }
+  console.log("hey", videos);
 
-    console.log("hey",videos)
-
-    return(
-        <div className="flex flex-wrap flex-col md:grid md:grid-cols-3 md:gap-8 2lg:gap-12">
-          {videos[0] && <AdVideoCard info={videos[0]} />}
-          {
-          videos.map(video => (
-          <Link  key={video.id} to ={"/watch?v="+video.id} className="my-6 md:my-2">
-          <VideoCard info={video} /></Link>))}
-         
-        </div>
-    )
-}
+  return (
+    <div className="flex flex-wrap flex-col md:grid md:grid-cols-3 md:gap-8 2lg:gap-12">
+      {videos[0] && <AdVideoCard info={videos[0]} />}
+      {videos.map((video) => (
+        <Link
+          key={video.id}
+          to={"/watch?v=" + video.id}
+          className="my-6 md:my-2"
+        >
+          <VideoCard info={video} />
+        </Link>
+      ))}
+    </div>
+  );
+};
 export default VideoContainer;

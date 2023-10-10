@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import LIveChat from "./LIveChat";
 
 const WatchPage = () => {
-  const [liveChat,setLiveChat] = useState("false")
-  const [playList,setPlayList] =useState([])
+  const [liveChat, setLiveChat] = useState("false");
+  // const [playList,setPlayList] =useState([])
   const [searchParams] = useSearchParams();
   console.log(searchParams.get("v"));
 
@@ -15,10 +15,9 @@ const WatchPage = () => {
     dispatch(closeMenu());
   }, []);
 
-
   return (
     <div className="flex flex-col w-full md:col-span-10 md:flex-row">
-      <div className="w-[60%] mb-5 md:h-[500px]">
+      <div className="w-full h-[360px] mb-10 md:w-[60%]  md:h-[500px] mr-10 relative ">
         <iframe
           className="w-full rounded-2xl h-full"
           title="youtube player"
@@ -26,18 +25,24 @@ const WatchPage = () => {
           allow="accelerometer;autoplay;clipboard-write; encrypted-media;gyroscope;picture-in-picture; web-share"
           allowFullScreen
         ></iframe>
-      <button className="bg-green-200 mt-5" onClick={()=>{setLiveChat(!liveChat)}}>LIveChat</button>
+        <button
+          className="bg-green-200 mt-5"
+          onClick={() => {
+            setLiveChat(!liveChat);
+          }}
+        >
+          LIveChat
+        </button>
       </div>
-    { !liveChat?(
-      <div className="border-2 border-black z-10 mt-8 md:mt-0  h-[500px]">
-        <LIveChat />
-      </div>) :null
-      }
+      {!liveChat ? (
+        <div className="  border-2 border-black z-10 mt-8 md:mt-0 md:relative md:h-[500px]">
+          <LIveChat />
+        </div>
+      ) : null}
 
       {/* <div>
         plyList
       </div> */}
-      
     </div>
   );
 };

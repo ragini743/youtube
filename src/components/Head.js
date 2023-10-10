@@ -9,8 +9,8 @@ import { json } from "react-router-dom";
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestion, setSuggestion] = useState([]);
-  const [showSuggestion,setShowSuggestion] = useState(false);
-  const searchCache = useSelector((store) =>store.search);
+  const [showSuggestion, setShowSuggestion] = useState(false);
+  const searchCache = useSelector((store) => store.search);
 
   console.log("searchQuery", searchQuery);
   useEffect(() => {
@@ -18,12 +18,13 @@ const Head = () => {
     // make an API call after every key press
     // but if the difference between 2 api calls is <200ms
     // >200ms decline the API call
-    const timer = setTimeout(() =>{ 
-        if(searchCache[searchQuery]){setSuggestion(searchCache[searchQuery]);
-        }else{
-        getSearchSuggestion()
-    }
-  } , 200);
+    const timer = setTimeout(() => {
+      if (searchCache[searchQuery]) {
+        setSuggestion(searchCache[searchQuery]);
+      } else {
+        getSearchSuggestion();
+      }
+    }, 200);
     return () => {
       clearTimeout(timer);
     };
@@ -46,10 +47,10 @@ const Head = () => {
     setSuggestion(json[1]);
     // update cache
     Dispatch(
-        cacheResults({
-            [searchQuery]:json[1],
-            })
-    )
+      cacheResults({
+        [searchQuery]: json[1],
+      })
+    );
   };
 
   const Dispatch = useDispatch();
@@ -59,8 +60,10 @@ const Head = () => {
   };
 
   return (
-    <div className="w-full flex flex-wrap
-        py-4 shadow-lg md:grid-flow-col md:grid">
+    <div
+      className="w-full flex flex-wrap
+        py-4 shadow-lg md:grid-flow-col md:grid"
+    >
       <div className="w-12 mr-2 self-center md:col-span-1 md:w-16">
         <img
           onClick={() => {
@@ -78,10 +81,8 @@ const Head = () => {
           className="w-full"
         ></img>
       </div>
-     
- 
-      <div className="order-4 border-2 rounded-xl mx-auto border-gray-400 flex my-6 md:order-3 md:w-2/3 md:col-span-9 relative">
 
+      <div className="order-4 border-2 rounded-xl mx-auto border-gray-400 flex my-6 md:order-3 md:w-2/3 md:col-span-9 relative">
         <input
           type="text"
           className="w-full rounded-xl pt-2 pb-2 rounded-r-none pl-2  border-0 mr-4 md:pt-4 md:pb-4 md:pl-4"
@@ -90,8 +91,8 @@ const Head = () => {
           onChange={(e) => {
             setSearchQuery(e.target.value);
           }}
-          onFocus={() =>setShowSuggestion(true)}
-          onBlur={() =>setShowSuggestion(false)}
+          onFocus={() => setShowSuggestion(true)}
+          onBlur={() => setShowSuggestion(false)}
         ></input>
         <button type="search" className="w-9 px-2 ">
           <img
@@ -99,33 +100,29 @@ const Head = () => {
             alt="search-icon"
           ></img>
         </button>
-        
-        {suggestion.length>0 && (
-        <div
-          className="absolute left-0 right-0 top-12 bg-white border-2 
+
+        {suggestion.length > 0 && (
+          <div
+            className="absolute left-0 right-0 top-12 bg-white border-2 
         items-center rounded-lg"
-        >
-          <ul className="flex flex-col relative p-3">
-            {suggestion.map((s)=> (
-            <li
-                key={s}
-                className="shadow-sm p-2 hover:bg-gray-100 rounded-lg"
-              >
-               
-                <img
-                  src="https://www.freepnglogos.com/uploads/search-png/search-very-basic-icon-ios-iconset-icons-7.png"
-                  alt="icon"
-                  className="w-6 mr-4  inline-block"
-                ></img>
-                 {s}
-              </li>
-            ))}
-            
-          </ul>
-        </div>
-                 ) }
-
-
+          >
+            <ul className="flex flex-col relative p-3">
+              {suggestion.map((s) => (
+                <li
+                  key={s}
+                  className="shadow-sm p-2 hover:bg-gray-100 rounded-lg"
+                >
+                  <img
+                    src="https://www.freepnglogos.com/uploads/search-png/search-very-basic-icon-ios-iconset-icons-7.png"
+                    alt="icon"
+                    className="w-6 mr-4  inline-block"
+                  ></img>
+                  {s}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       <div className="order-3 ml-auto w-9 md:col-span-1 md:relative right-5">
