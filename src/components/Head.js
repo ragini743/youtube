@@ -5,6 +5,7 @@ import { toggleMenu } from "../utils/appSlice";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import searchSlice, { cacheResults } from "../utils/searchSlice";
 import { json } from "react-router-dom";
+// import VideoContainer from "./VideoContainer";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -90,11 +91,18 @@ const Head = () => {
           value={searchQuery}
           onChange={(e) => {
             setSearchQuery(e.target.value);
+
+
           }}
           onFocus={() => setShowSuggestion(true)}
           onBlur={() => setShowSuggestion(false)}
         ></input>
-        <button type="search" className="w-9 px-2 ">
+        <button type="search" className="w-9 px-2 "
+        onClick={()=>{console.log("videos")}}
+        
+        
+        >
+
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVXvNI4E3PQ18LUBBYIpjyQUQUwhBTw3VQiBMYec8Omw&s"
             alt="search-icon"

@@ -3,17 +3,32 @@ import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
 import LIveChat from "./LIveChat";
+import PlayListContainer from "./playListContainer";
 
 const WatchPage = () => {
   const [liveChat, setLiveChat] = useState("false");
-  // const [playList,setPlayList] =useState([])
+  const [playList,setPlayList] =useState([])
   const [searchParams] = useSearchParams();
-  console.log(searchParams.get("v"));
+  // console.log(searchParams.get("v"));
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(closeMenu());
   }, []);
+
+useEffect(() =>{
+  getPlayList();
+},[])
+const getPlayList = async () =>{
+  const data = await fetch("https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=UC_x5XG1OV2P6uZZ5FSM9Ttw&maxResults=25&key=AIzaSyBAubYkDr5e2UiKeBY1IZwlhMifex3urdc")
+  const json = await data.json();
+  // console.log("playlist",json);
+  setPlayList(json.items)
+}
+
+
+
+
 
   return (
     <div className="flex flex-col w-full md:col-span-10 md:flex-row">
@@ -40,9 +55,14 @@ const WatchPage = () => {
         </div>
       ) : null}
 
-      {/* <div>
-        plyList
-      </div> */}
+      <div className="mt-10 flex flex-col w-full mx-auto items-center md:mr-10 md:mt-0">
+        
+        {playList.map((videoplay) => (
+
+<PlayListContainer key={videoplay.id} videoplay={videoplay} />
+
+        ))}
+      </div>
     </div>
   );
 };

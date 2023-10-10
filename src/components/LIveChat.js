@@ -39,7 +39,7 @@ const LIveChat = () => {
         className="mt-4 border-t-2 shadow-2xl flex flex-col h-auto md:justify-between md:mt-0 sticky bottom-0"
         onSubmit={(e) => {
           e.preventDefault();
-          console.log("submit", liveMessage);
+        //   console.log("submit", liveMessage);
           dispatch(
             addMessage({
               name: "ragini",
@@ -55,7 +55,7 @@ const LIveChat = () => {
           value={liveMessage}
           onChange={(e) => {
             setLiveMessage(e.target.value);
-            console.log(setLiveMessage);
+            // console.log(setLiveMessage);
           }}
         ></input>
         <button className="bg-green-300">post</button>
