@@ -80,7 +80,7 @@ const Head = () => {
       </div>
      
  
-      <div className="order-4 border-2 rounded-xl mx-auto border-gray-400 flex my-6 sm:order-3 md:order-3 md:w-2/3 md:col-span-9 relative">
+      <div className="order-4 border-2 rounded-xl mx-auto border-gray-400 flex my-6 md:order-3 md:w-2/3 md:col-span-9 relative">
 
         <input
           type="text"
@@ -128,7 +128,7 @@ const Head = () => {
 
       </div>
 
-      <div className="order-3 ml-auto w-9 sm:order-4 md:col-span-1 md:relative right-5">
+      <div className="order-3 ml-auto w-9 md:col-span-1 md:relative right-5">
         <img
           src="https://cdn-icons-png.flaticon.com/512/666/666201.png"
           alt="user-logo"

@@ -4050,6 +4050,6 @@ export const data = {
 
   export const plyListData_API = 'https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=UC_x5XG1OV2P6uZZ5FSM9Ttw&maxResults=25&key=AIzaSyBAubYkDr5e2UiKeBY1IZwlhMifex3urdc'
 
-  export const OFFSET_liveChat = 20;
+  export const OFFSET_liveChat = 10;
 
   // Live chat>>>>>>>infinite scroll >>>>>>>Pagination
