@@ -28,7 +28,7 @@ const LIveChat = () => {
     };
   }, []);
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col h-full">
       <div className="flex flex-col-reverse overflow-y-scroll justify-end">
         {chatMessages.map((c, i) => (
           <ChatMessage name={c.name} message={c.message} />

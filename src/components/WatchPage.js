@@ -4,31 +4,27 @@ import { closeMenu } from "../utils/appSlice";
 import { Link, useSearchParams } from "react-router-dom";
 import LIveChat from "./LIveChat";
 import PlayListContainer from "./playListContainer";
+import { YOUTUBE_VIDEOS_API } from "../utils/constants";
 
 const WatchPage = () => {
   const [liveChat, setLiveChat] = useState("false");
-  const [playList,setPlayList] =useState([])
+  const [playList, setPlayList] = useState([]);
   const [searchParams] = useSearchParams();
-  // console.log(searchParams.get("v"));
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(closeMenu());
   }, []);
 
-useEffect(() =>{
-  getPlayList();
-},[])
-const getPlayList = async () =>{
-  const data = await fetch("https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=UC_x5XG1OV2P6uZZ5FSM9Ttw&maxResults=25&key=AIzaSyBAubYkDr5e2UiKeBY1IZwlhMifex3urdc")
-  const json = await data.json();
-  // console.log("playlist",json);
-  setPlayList(json.items)
-}
+  useEffect(() => {
+    getPlayList();
+  }, []);
 
-
-
-
+  const getPlayList = async () => {
+    const data = await fetch(YOUTUBE_VIDEOS_API);
+    const json = await data.json();
+    // console.log("playlist",json);
+    setPlayList(json.items);
+  };
 
   return (
     <div className="flex flex-col w-full md:col-span-10 md:flex-row">
@@ -55,13 +51,14 @@ const getPlayList = async () =>{
         </div>
       ) : null}
 
-      <div className="mt-10 flex flex-col w-full mx-auto items-center md:mr-10 md:mt-0">
-        
+      <div className="mt-10 flex flex-col w-full mx-auto items-center md:mr-10 md:mt-0 md:w-[30%]">
         {playList.map((videoplay) => (
-<Link to={videoplay.id} key={videoplay.id}
->
-<PlayListContainer key={videoplay.id} videoplay={videoplay} />
-</Link>
+          <Link
+            to={"/watch?v=" + videoplay.id}
+            key={videoplay.id}
+          >
+            <PlayListContainer key={videoplay.id} videoplay={videoplay} />
+          </Link>
         ))}
       </div>
     </div>
