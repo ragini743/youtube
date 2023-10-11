@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import LIveChat from "./LIveChat";
 import PlayListContainer from "./playListContainer";
 
@@ -58,9 +58,10 @@ const getPlayList = async () =>{
       <div className="mt-10 flex flex-col w-full mx-auto items-center md:mr-10 md:mt-0">
         
         {playList.map((videoplay) => (
-
+<Link to={videoplay.id} key={videoplay.id}
+>
 <PlayListContainer key={videoplay.id} videoplay={videoplay} />
-
+</Link>
         ))}
       </div>
     </div>
