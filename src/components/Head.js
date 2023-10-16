@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import searchSlice, { cacheResults } from "../utils/searchSlice";
+
 import { json } from "react-router-dom";
 // import VideoContainer from "./VideoContainer";
 
@@ -59,11 +60,12 @@ const Head = () => {
   const toggleMenuHandler = () => {
     Dispatch(toggleMenu());
   };
+  useEffect(()=>{},[])
 
   return (
     <div
       className="w-full flex flex-wrap
-        py-4 shadow-lg md:grid-flow-col md:grid"
+        py-4 shadow-lg md:grid-flow-col md:grid sticky z-[50] top-0 bg-white"
     >
       <div className="w-12 mr-2 self-center md:col-span-1 md:w-16">
         <img
@@ -91,18 +93,13 @@ const Head = () => {
           value={searchQuery}
           onChange={(e) => {
             setSearchQuery(e.target.value);
-
-
           }}
           onFocus={() => setShowSuggestion(true)}
           onBlur={() => setShowSuggestion(false)}
         ></input>
-        <button type="search" className="w-9 px-2 "
-        onClick={()=>{console.log("videos")}}
-        
-        
-        >
-
+        <button type="search" className="w-9 px-2 " onClick={(e) => {
+          // const filteredInput = e.target.value.includes(searchQuery) 
+        }}>
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVXvNI4E3PQ18LUBBYIpjyQUQUwhBTw3VQiBMYec8Omw&s"
             alt="search-icon"

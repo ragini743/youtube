@@ -27,7 +27,7 @@ const WatchPage = () => {
   };
 
   return (
-    <div className="flex flex-col w-full md:col-span-10 md:flex-row">
+    <div className="flex flex-col w-full md:col-span-10 md:flex-row md:p-5">
       <div className="w-full h-[360px] mb-10 md:w-[60%]  md:h-[500px] mr-10 relative ">
         <iframe
           className="w-full rounded-2xl h-full"
@@ -51,7 +51,7 @@ const WatchPage = () => {
         </div>
       ) : null}
 
-      <div className="mt-10 flex flex-col w-full mx-auto items-center md:mr-10 md:mt-0 md:w-[30%]">
+      <div className="mt-10 flex flex-col w-full mx-auto items-center md:mr-5 md:ml-10 md:mt-0 md:w-[30%]">
         {playList.map((videoplay) => (
           <Link
             to={"/watch?v=" + videoplay.id}
