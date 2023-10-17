@@ -5,6 +5,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import LIveChat from "./LIveChat";
 import PlayListContainer from "./playListContainer";
 import { YOUTUBE_VIDEOS_API } from "../utils/constants";
+import WatchShimmer from "./WatchShimmer";
 
 const WatchPage = () => {
   const [liveChat, setLiveChat] = useState("false");
@@ -25,6 +26,9 @@ const WatchPage = () => {
     // console.log("playlist",json);
     setPlayList(json.items);
   };
+  if (playList.length===0){
+    return <WatchShimmer />
+  }
 
   return (
     <div className="flex flex-col w-full md:col-span-10 md:flex-row md:p-5">
