@@ -2,17 +2,19 @@ import React, { useEffect, useState } from "react";
 import { Dispatch } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
-import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import { YOUTUBE_SEARCH_API, searchResultAPI } from "../utils/constants";
 import searchSlice, { cacheResults } from "../utils/searchSlice";
 
-import { json } from "react-router-dom";
+import { Link, json } from "react-router-dom";
+import InputContainer from "./InputContainer";
 // import VideoContainer from "./VideoContainer";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestion, setSuggestion] = useState([]);
   const [showSuggestion, setShowSuggestion] = useState(false);
-  const searchCache = useSelector((store) => store.search);
+ const [result,setResult]  = useState ([]);
+     const searchCache = useSelector((store) => store.search);
 
   console.log("searchQuery", searchQuery);
   useEffect(() => {
@@ -25,6 +27,8 @@ const Head = () => {
         setSuggestion(searchCache[searchQuery]);
       } else {
         getSearchSuggestion();
+        getResult()
+       
       }
     }, 200);
     return () => {
@@ -54,7 +58,15 @@ const Head = () => {
       })
     );
   };
+  const getResult = async () =>{
+    const resultData=await fetch(searchResultAPI+searchQuery);
+    const jsonResult = await resultData.json()
+    console.log("jsonResult",jsonResult.items)
+    setResult(jsonResult.items)
 
+  }
+
+ 
   const Dispatch = useDispatch();
 
   const toggleMenuHandler = () => {
@@ -97,23 +109,22 @@ const Head = () => {
           onFocus={() => setShowSuggestion(true)}
           onBlur={() => setShowSuggestion(false)}
         ></input>
-        <button type="search" className="w-9 px-2 " onClick={(e) => {
-          // const filteredInput = e.target.value.includes(searchQuery) 
-        }}>
+        <button type="search" className="w-9 px-2 ">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVXvNI4E3PQ18LUBBYIpjyQUQUwhBTw3VQiBMYec8Omw&s"
             alt="search-icon"
           ></img>
         </button>
-
+   
         {suggestion.length > 0 && (
           <div
             className="absolute left-0 right-0 top-12 bg-white border-2 
         items-center rounded-lg"
           >
             <ul className="flex flex-col relative p-3">
+
               {suggestion.map((s) => (
-                <li
+                <li 
                   key={s}
                   className="shadow-sm p-2 hover:bg-gray-100 rounded-lg"
                 >

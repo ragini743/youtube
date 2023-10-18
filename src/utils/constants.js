@@ -11,7 +11,7 @@ export const YOUTUBE_VIDEOS_API =
 // AIzaSyA8yub88TQZa1F29ekX-kHsSyHplnZcLgk
 
 
-const searchResultAPI = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&key=AIzaSyBAubYkDr5e2UiKeBY1IZwlhMifex3urdc&q='
+ export const searchResultAPI = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&key=AIzaSyBAubYkDr5e2UiKeBY1IZwlhMifex3urdc&q='
 
   export const commentData= 'https://youtube.googleapis.com/youtube/v3/comment?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=AIzaSyA8yub88TQZa1F29ekX-kHsSyHplnZcLgk' 
 
