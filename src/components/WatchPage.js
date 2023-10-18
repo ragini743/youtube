@@ -57,7 +57,7 @@ const WatchPage = () => {
 
       <div className="mt-10 flex flex-col w-full mx-auto items-center md:mr-5 md:ml-10 md:mt-0 md:w-[30%] md:h-[100vh] md:overflow-y-scroll">
         {playList.map((videoplay) => (
-          <Link
+          <Link className="w-full" 
             to={"/watch?v=" + videoplay.id}
             key={videoplay.id}
           >
