@@ -5,7 +5,9 @@ import { toggleMenu } from "../utils/appSlice";
 import { YOUTUBE_SEARCH_API, searchResultAPI } from "../utils/constants";
 import searchSlice, { cacheResults } from "../utils/searchSlice";
 
-import { Link, json } from "react-router-dom";
+
+
+import { Link } from "react-router-dom";
 import InputContainer from "./InputContainer";
 // import VideoContainer from "./VideoContainer";
 
@@ -13,7 +15,7 @@ const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestion, setSuggestion] = useState([]);
   const [showSuggestion, setShowSuggestion] = useState(false);
- const [result,setResult]  = useState ([]);
+
      const searchCache = useSelector((store) => store.search);
 
   console.log("searchQuery", searchQuery);
@@ -27,7 +29,7 @@ const Head = () => {
         setSuggestion(searchCache[searchQuery]);
       } else {
         getSearchSuggestion();
-        getResult()
+        // getResult()
        
       }
     }, 200);
@@ -35,6 +37,7 @@ const Head = () => {
       clearTimeout(timer);
     };
   }, [searchQuery]);
+
 
   // key -i
   // render the component
@@ -58,15 +61,7 @@ const Head = () => {
       })
     );
   };
-  const getResult = async () =>{
-    const resultData=await fetch(searchResultAPI+searchQuery);
-    const jsonResult = await resultData.json()
-    console.log("jsonResult",jsonResult.items)
-    setResult(jsonResult.items)
 
-  }
-
- 
   const Dispatch = useDispatch();
 
   const toggleMenuHandler = () => {
@@ -109,13 +104,13 @@ const Head = () => {
           onFocus={() => setShowSuggestion(true)}
           onBlur={() => setShowSuggestion(false)}
         ></input>
-        <button type="search" className="w-9 px-2 ">
+        <button type="search" className="w-9 px-2">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVXvNI4E3PQ18LUBBYIpjyQUQUwhBTw3VQiBMYec8Omw&s"
             alt="search-icon"
           ></img>
         </button>
-   
+        
         {suggestion.length > 0 && (
           <div
             className="absolute left-0 right-0 top-12 bg-white border-2 
@@ -127,13 +122,20 @@ const Head = () => {
                 <li 
                   key={s}
                   className="shadow-sm p-2 hover:bg-gray-100 rounded-lg"
+                  onClick={() => {
+                    window.location.href= "/result" + "?q=" + s ;
+               
+                  }}
                 >
+                 
                   <img
                     src="https://www.freepnglogos.com/uploads/search-png/search-very-basic-icon-ios-iconset-icons-7.png"
                     alt="icon"
                     className="w-6 mr-4  inline-block"
                   ></img>
-                  {s}
+               
+                    {s}
+              
                 </li>
               ))}
             </ul>

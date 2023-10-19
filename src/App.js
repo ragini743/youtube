@@ -24,7 +24,7 @@ const appRouter = createBrowserRouter([{
  
 },
 {
-  path:"results",
+  path:"result",
   element:<InputContainer />,
 }
 

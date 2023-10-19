@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 // import MainContainer from "./MainContainer";
 // import WatchPage from "./WatchPage";
 import { Outlet } from "react-router-dom";
+
 const Body = () =>{
     return(
         <div className="flex w-full mt-4 md:grid md:grid-flow-col">
