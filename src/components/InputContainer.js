@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { searchResultAPI } from "../utils/constants";
-import UserVideo from "./UserVideo";
 import { useSearchParams } from "react-router-dom";
 
 const InputContainer = () => {
@@ -25,8 +24,8 @@ const InputContainer = () => {
      
 
 return(
-    <div>sdfgthygbfvcdxz
-{/* <UserVideo /> */}
+    <div>
+      sdfgthygbfvcdxz
     </div>
 )
 }
