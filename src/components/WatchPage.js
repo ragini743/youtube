@@ -4,7 +4,7 @@ import { closeMenu } from "../utils/appSlice";
 import { Link, useSearchParams } from "react-router-dom";
 import LIveChat from "./LIveChat";
 import PlayListContainer from "./playListContainer";
-import { YOUTUBE_VIDEOS_API } from "../utils/constants";
+import { YOUTUBE_VIDEOS_API, videoData } from "../utils/constants";
 import WatchShimmer from "./WatchShimmer";
 
 const WatchPage = () => {
@@ -24,7 +24,8 @@ const WatchPage = () => {
     const data = await fetch(YOUTUBE_VIDEOS_API);
     const json = await data.json();
     // console.log("playlist",json);
-    setPlayList(json.items);
+    // setPlayList(json.items);
+    setPlayList(videoData)
   };
   if (playList.length===0){
     return <WatchShimmer />
