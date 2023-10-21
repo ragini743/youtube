@@ -16,9 +16,9 @@ const InputContainer = () => {
         const resultData=await fetch(searchResultAPI+URL);
         const jsonResult = await resultData.json()
         console.log("jsonResult",jsonResult.items)
-        setResult(jsonResult.items)
+        // setResult(jsonResult.items)
         console.log("result",result)
-        // setResult(videoData)
+        setResult(videoData)
       }
       useEffect(() =>{
         getResult();}

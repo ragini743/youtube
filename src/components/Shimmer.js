@@ -1,6 +1,6 @@
 const Shimmer = () =>{
     return(
-        <div className="flex flex-wrap flex-col md:grid md:grid-cols-3 md:gap-8 h-full">
+        <div className="flex flex-wrap flex-col md:grid md:grid-cols-3 md:gap-8 h-full md:col-span-10 ">
            <div className=" border-l-gray-400 mb-5 md:mb-0">
             <div className="bg-slate-300 h-56"></div>
            <ul className="mt-1">
