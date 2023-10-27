@@ -15,7 +15,7 @@ export const YOUTUBE_VIDEOS_API =
 
   export const commentData= 'https://youtube.googleapis.com/youtube/v3/comment?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=AIzaSyA8yub88TQZa1F29ekX-kHsSyHplnZcLgk' 
 
-  export const YOUTUBE_SEARCH_API = "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=" ;
+  export const YOUTUBE_SEARCH_API = "https://cors-anywhere.herokuapp.com/https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=" ;
 
 
   export const plyListData_API = 'https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=UC_x5XG1OV2P6uZZ5FSM9Ttw&maxResults=25&key=AIzaSyBAubYkDr5e2UiKeBY1IZwlhMifex3urdc'

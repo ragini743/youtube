@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Dispatch } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { YOUTUBE_SEARCH_API, searchResultAPI } from "../utils/constants";
-import searchSlice, { cacheResults } from "../utils/searchSlice";
+import  { cacheResults } from "../utils/searchSlice";
 
 
-
-import { Link } from "react-router-dom";
-import InputContainer from "./InputContainer";
-// import VideoContainer from "./VideoContainer";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -66,6 +62,7 @@ const Head = () => {
 
   const toggleMenuHandler = () => {
     Dispatch(toggleMenu());
+    
   };
   useEffect(()=>{},[])
 
