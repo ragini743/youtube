@@ -24,8 +24,8 @@ const WatchPage = () => {
     const data = await fetch(YOUTUBE_VIDEOS_API);
     const json = await data.json();
     // console.log("playlist",json);
-    // setPlayList(json.items);
-    setPlayList(videoData)
+    setPlayList(json.items);
+    // setPlayList(videoData)
   };
   if (playList.length===0){
     return <WatchShimmer />
