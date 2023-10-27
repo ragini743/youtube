@@ -118,7 +118,7 @@ const Head = () => {
               {suggestion.map((s) => (
                 <li 
                   key={s}
-                  className="shadow-sm p-2 hover:bg-gray-100 rounded-lg"
+                  className="shadow-sm p-2 hover:bg-gray-100 rounded-lg cursor-pointer"
                   onClick={() => {
                     window.location.href= "/result" + "?q=" + s ;
                
