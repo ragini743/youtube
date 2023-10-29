@@ -38,7 +38,7 @@ const VideoContainer = () => {
         <Link
           key={video.id}
           to={"/watch?v=" + video.id}
-          className="my-6 md:my-2"
+          className="w-[100%] my-6 md:my-2"
         >
           <VideoCard info={video} />
         </Link>
