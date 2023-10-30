@@ -15,7 +15,7 @@ const VideoCard = ({ info }) => {
           alt="thumbnails"
         ></img>
       </div>
-      <ul className="w-[100%]">
+      <ul className="">
         {/* <li className="overflow-x-hidden break-normal">title : {title}</li> */}
         <li className="overflow-x-hidden">{channelTitle}</li>
 

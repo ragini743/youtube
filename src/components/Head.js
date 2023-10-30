@@ -140,7 +140,7 @@ const Head = () => {
         )}
       </div>
 
-      <div className="order-3 ml-auto w-9 md:col-span-1 md:relative right-5">
+      <div className="order-3 ml-auto w-9 md:col-span-1 relative right-7 md:relative md:right-5">
         <img
           src="https://cdn-icons-png.flaticon.com/512/666/666201.png"
           alt="user-logo"
